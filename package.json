@@ -14,6 +14,7 @@
   "dependencies": {
     "@clerk/tanstack-react-start": "0.12.0",
     "@convex-dev/react-query": "^0.0.0-alpha.8",
+    "@radix-ui/react-slot": "^1.2.3",
     "@tailwindcss/postcss": "^4.1.8",
     "@tanstack/react-query": "^5.80.6",
     "@tanstack/react-query-devtools": "^5.80.6",
