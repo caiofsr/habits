@@ -12,6 +12,8 @@ import { NotFound } from '@components/NotFound.js';
 import appCss from '@/styles/app.css?url';
 import { QueryClient } from "@tanstack/react-query";
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
+import { ThemeProvider } from "@/components/theme-provider"
+import { ModeToggle } from "@/components/mode-toggle"
 
 const fetchClerkAuth = createServerFn({ method: 'GET' }).handler(async () => {
 	const { userId } = await getAuth(getWebRequest() as Request);
@@ -77,11 +79,13 @@ export const Route = createRootRouteWithContext<{
 
 function RootComponent() {
 	return (
-		<ClerkProvider>
-			<RootDocument>
-				<Outlet />
-			</RootDocument>
-		</ClerkProvider>
+		<ThemeProvider defaultTheme="dark" storageKey="color-theme">
+			<ClerkProvider>
+				<RootDocument>
+					<Outlet />
+				</RootDocument>
+			</ClerkProvider>
+		</ThemeProvider>
 	);
 }
 
@@ -101,7 +105,7 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 						activeOptions={{ exact: true }}
 					>
 						Home
-					</Link>{' '}
+					</Link>{ ' ' }
 					<Link
 						to="/posts"
 						activeProps={{
@@ -110,7 +114,8 @@ function RootDocument({ children }: { children: React.ReactNode }) {
 					>
 						Posts
 					</Link>
-					<div className="ml-auto">
+					<div className="ml-auto flex items-center gap-2">
+						<ModeToggle />
 						<SignedIn>
 							<UserButton />
 						</SignedIn>
