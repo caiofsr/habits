@@ -1,9 +1,4 @@
-import {
-	DarkTheme,
-	DefaultTheme,
-	type Theme,
-	ThemeProvider,
-} from "@react-navigation/native";
+import { DarkTheme, DefaultTheme, type Theme, ThemeProvider } from "@react-navigation/native";
 import { ConvexProvider, ConvexReactClient } from "convex/react";
 import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
@@ -60,10 +55,7 @@ export default function RootLayout() {
 				<GestureHandlerRootView style={{ flex: 1 }}>
 					<Stack>
 						<Stack.Screen name="(drawer)" options={{ headerShown: false }} />
-						<Stack.Screen
-							name="modal"
-							options={{ title: "Modal", presentation: "modal" }}
-						/>
+						<Stack.Screen name="modal" options={{ title: "Modal", presentation: "modal" }} />
 					</Stack>
 				</GestureHandlerRootView>
 			</ThemeProvider>
@@ -72,6 +64,4 @@ export default function RootLayout() {
 }
 
 const useIsomorphicLayoutEffect =
-	Platform.OS === "web" && typeof window === "undefined"
-		? React.useEffect
-		: React.useLayoutEffect;
+	Platform.OS === "web" && typeof window === "undefined" ? React.useEffect : React.useLayoutEffect;

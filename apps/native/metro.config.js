@@ -52,8 +52,6 @@ function withMonorepoPaths(config) {
  * @returns {import('expo/metro-config').MetroConfig}
  */
 function withTurborepoManagedCache(config) {
-	config.cacheStores = [
-		new FileStore({ root: path.join(__dirname, ".cache/metro") }),
-	];
+	config.cacheStores = [new FileStore({ root: path.join(__dirname, ".cache/metro") })];
 	return config;
 }

@@ -9,20 +9,12 @@ export default function Home() {
 	return (
 		<Container>
 			<ScrollView showsVerticalScrollIndicator={false} className="flex-1">
-				<Text className="mb-4 font-bold font-mono text-3xl text-foreground">
-					BETTER T STACK
-				</Text>
+				<Text className="mb-4 font-bold font-mono text-3xl text-foreground">BETTER T STACK</Text>
 				<View className="mb-6 rounded-xl border border-border bg-card p-6 shadow-sm">
 					<View className="flex-row items-center gap-3">
-						<View
-							className={`h-3 w-3 rounded-full ${
-								healthCheck ? "bg-green-500" : "bg-orange-500"
-							}`}
-						/>
+						<View className={`h-3 w-3 rounded-full ${healthCheck ? "bg-green-500" : "bg-orange-500"}`} />
 						<View className="flex-1">
-							<Text className="font-medium text-card-foreground text-sm">
-								Convex
-							</Text>
+							<Text className="font-medium text-card-foreground text-sm">Convex</Text>
 							<Text className="text-muted-foreground text-xs">
 								{healthCheck === undefined
 									? "Checking connection..."
