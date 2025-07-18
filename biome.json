@@ -21,12 +21,13 @@
 			"!bts.jsonc",
 			"!**/.expo",
 			"!**/.wrangler",
-			"!**/_generated"
+			"!**/_generated/*"
 		]
 	},
 	"formatter": {
 		"enabled": true,
-		"indentStyle": "tab"
+		"indentStyle": "tab",
+		"lineWidth": 120
 	},
 	"assist": { "actions": { "source": { "organizeImports": "on" } } },
 	"linter": {
