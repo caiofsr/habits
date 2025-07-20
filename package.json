@@ -16,7 +16,10 @@
 		"dev:server": "turbo -F @habits/backend dev",
 		"dev:setup": "turbo -F @habits/backend dev:setup"
 	},
-	"dependencies": {},
+	"dependencies": {
+		"@clerk/clerk-expo": "^2.14.9",
+		"expo-secure-store": "^14.2.3"
+	},
 	"devDependencies": {
 		"@biomejs/biome": "^2.1.2",
 		"husky": "^9.1.7",

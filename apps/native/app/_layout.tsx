@@ -4,6 +4,8 @@ import { Stack } from "expo-router";
 import { StatusBar } from "expo-status-bar";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
 import "../global.css";
+import { ClerkProvider } from "@clerk/clerk-expo";
+import { tokenCache } from "@clerk/clerk-expo/token-cache";
 import React, { useRef } from "react";
 import { Platform } from "react-native";
 import { setAndroidNavigationBar } from "@/lib/android-navigation-bar";
@@ -54,17 +56,19 @@ export default function RootLayout() {
 		return null;
 	}
 	return (
-		<ConvexProvider client={convex}>
-			<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
-				<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
-				<GestureHandlerRootView style={{ flex: 1 }}>
-					<Stack>
-						<Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
-						<Stack.Screen name="(authed)/(tabs)" options={{ headerShown: false }} />
-					</Stack>
-				</GestureHandlerRootView>
-			</ThemeProvider>
-		</ConvexProvider>
+		<ClerkProvider tokenCache={tokenCache}>
+			<ConvexProvider client={convex}>
+				<ThemeProvider value={isDarkColorScheme ? DARK_THEME : LIGHT_THEME}>
+					<StatusBar style={isDarkColorScheme ? "light" : "dark"} />
+					<GestureHandlerRootView style={{ flex: 1 }}>
+						<Stack>
+							<Stack.Screen name="index" options={{ title: "Home", headerShown: false }} />
+							<Stack.Screen name="(authed)/(tabs)" options={{ headerShown: false }} />
+						</Stack>
+					</GestureHandlerRootView>
+				</ThemeProvider>
+			</ConvexProvider>
+		</ClerkProvider>
 	);
 }
 
